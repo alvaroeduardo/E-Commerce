@@ -27,7 +27,7 @@ export default class AuthenticationController {
                 token,
                 user: userData,
                 status: "success",
-                message: "Logado com sucesso."
+                message: "Bem-vindo de volta! Estamos felizes por você ter escolhido fazer login novamente. Esperamos que sua experiência seja incrível e agradecemos a sua preferência."
             });
         } else {
             return response.unauthorized({
@@ -48,7 +48,7 @@ export default class AuthenticationController {
         if(!!userExists){
             return response.unauthorized({
                 status: "warning",
-                message: "Usuário já existente. Tente outro E-Mail."
+                message: "O usuário já existe no sistema. Por favor, faça login com suas informações de conta existentes."
             });
         }
 
@@ -63,7 +63,7 @@ export default class AuthenticationController {
 
         return response.created({
             status: "success",
-            message: "Usuário criado com sucesso.",
+            message: "Sua conta foi criada com sucesso! Agora você pode fazer login com seu e-mail e senha.",
             user: userRegistered,
             token
         });
@@ -74,7 +74,7 @@ export default class AuthenticationController {
 
         return response.ok({
             status: "success",
-            message: "Deslogado com sucesso."
+            message: "Desconectado com sucesso! Obrigado por usar nosso sistema. Esperamos vê-lo novamente em breve."
         });
     }
 }
